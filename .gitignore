@@ -1,0 +1,21 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Vector store / logs (regenerable, and may contain project-specific content)
+data/vector_store/*
+!data/vector_store/.gitkeep
+data/logs/*
+!data/logs/.gitkeep
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

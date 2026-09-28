@@ -1,0 +1,21 @@
+# Phase 1: configuration.
+# Phase 2: document ingestion — no new runtime dependencies.
+# Phase 3: embedding layer. sentence-transformers is the intended
+# production backend for EMBEDDING_MODEL=all-MiniLM-L6-v2; listed here so
+# `pip install -r requirements.txt` gives you the real model on your own
+# machine. See app/embeddings/embedder.py for why it can't run inside the
+# sandbox this project was built in (no route to huggingface.co) — the
+# pipeline auto-falls-back to a network-free deterministic embedder there.
+# Phase 4/5: local vector storage via ChromaDB (runs fully offline once
+# installed — no network calls at query/index time).
+# LLM client: Gemini via google-genai. Needs LLM_API_KEY at runtime (see .env.example).
+# Phase 10: Streamlit UI.
+
+pydantic==2.9.2
+pydantic-settings==2.5.2
+python-dotenv==1.0.1
+pytest==8.3.3
+sentence-transformers==3.1.1
+chromadb==1.5.9
+streamlit==1.64.0
+google-genai
